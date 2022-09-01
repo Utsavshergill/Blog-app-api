@@ -1,5 +1,7 @@
 package com.codewithutsav.com.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,8 +44,21 @@ public class UserController {
 	@DeleteMapping("/{userId}")
 	public ResponseEntity<ApiResponse> deleteUser(@PathVariable("userId") Integer uid)
 	{
-		this.deleteUser(uid);
-		return new ResponseEntity(new ApiResponse("user deleted successfully", true),HttpStatus.OK);
+		this.userService.deleteUser(uid);
+		return new ResponseEntity<ApiResponse>(new ApiResponse("user deleted successfully", true),HttpStatus.OK);
+	}
+	
+	@GetMapping("/")
+	public ResponseEntity<List<UserDto>> getAllUsers()
+	{
+		return ResponseEntity.ok(this.userService.getAllUsers());
+		
+	}
+	
+	@GetMapping("/{userId}")
+	public ResponseEntity<UserDto> getSingleUser(@PathVariable Integer userId)
+	{
+		return ResponseEntity.ok(this.userService.getUserById(userId));
 	}
 	 
 	
