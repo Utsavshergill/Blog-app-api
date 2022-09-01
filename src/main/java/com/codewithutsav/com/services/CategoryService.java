@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.codewithutsav.com.payloads.CategoryDto;
 
-public interface CategoryRepo {
+public interface CategoryService {
 	
 	//create
-    CategoryDto createCategory(CategoryDto categoryDto);
+     CategoryDto createCategory(CategoryDto categoryDto);
 	
 	//update
 	 CategoryDto updateCategory(CategoryDto categoryDto ,Integer categoryId);
@@ -17,7 +17,7 @@ public interface CategoryRepo {
 	 CategoryDto getCategory(Integer categoryId);
 	
 	//get all user
-	List<CategoryDto> getCategories();
+	 List<CategoryDto> getCategories();
 	
 	
 
