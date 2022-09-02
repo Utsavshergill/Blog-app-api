@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.codewithutsav.com.entities.Category;
 import com.codewithutsav.com.exceptions.ResourceNotFoundException;
@@ -12,6 +13,7 @@ import com.codewithutsav.com.payloads.CategoryDto;
 import com.codewithutsav.com.repositories.CategoryRepo;
 import com.codewithutsav.com.services.CategoryService;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 	
 	@Autowired
