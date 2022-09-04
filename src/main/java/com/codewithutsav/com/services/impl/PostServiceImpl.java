@@ -37,7 +37,10 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public PostDto createPost(PostDto postDto ,Integer userId ,Integer categoryId) {
+		
+		
 		User user=this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User","User id",userId));
+		
 		Category category=this.categoryRepo.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category","Category id",categoryId));
 		
 		Post post=this.modelMapper.map(postDto, Post.class);
