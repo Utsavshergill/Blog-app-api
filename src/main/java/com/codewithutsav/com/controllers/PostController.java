@@ -85,6 +85,8 @@ public class PostController {
 		return new ResponseEntity<PostDto>(updatePost,HttpStatus.OK);
 
 // cehecking
+
+		//chekinh
 	}
 	
 }
