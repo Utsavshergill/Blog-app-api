@@ -1,10 +1,9 @@
 package com.codewithutsav.com.services;
 
-import java.util.List;
-
 import com.codewithutsav.com.entities.Post;
-
 import com.codewithutsav.com.payloads.PostDto;
+
+import java.util.List;
 
 
 public interface PostService {
@@ -13,7 +12,7 @@ public interface PostService {
 	PostDto createPost(PostDto postDto ,Integer userId ,Integer categoryId);
 	
 	//update
-	Post updatePost(PostDto postDto ,Integer postId);
+	PostDto updatePost(PostDto postDto ,Integer postId);
 	
 	
 	//delete
@@ -21,20 +20,20 @@ public interface PostService {
 	
 	
 	//all user post
-	List<Post> getAllPost();
+	List<PostDto> getAllPost();
 	
 	
 	//single user
 	
-	Post getPostById(Integer postId);
+	PostDto getPostById(Integer postId);
 	
 	
 	//get all post by category
-	List<Post> getPostByCategory(Integer categoryId);
+	List<PostDto> getPostByCategory(Integer categoryId);
 	
 	
 	//get all post by user
-	List<Post> getPostByUser(Integer userId);
+	List<PostDto> getPostByUser(Integer userId);
 	
 	//search posts
 	List<Post> searchPosts(String keyword);

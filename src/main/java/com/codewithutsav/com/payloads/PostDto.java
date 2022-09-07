@@ -1,22 +1,18 @@
 package com.codewithutsav.com.payloads;
 
-import java.util.Date;
-
-
-
-import com.codewithutsav.com.entities.Category;
-import com.codewithutsav.com.entities.User;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
 public class PostDto {
-
+     
+	private Integer postId;
 	
 	private String title;
 	
