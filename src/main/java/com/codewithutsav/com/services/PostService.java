@@ -20,7 +20,7 @@ public interface PostService {
 	
 	
 	//all user post
-	List<PostDto> getAllPost();
+	List<PostDto> getAllPost(Integer pageNumber,Integer pageSize,String sortBy,String sortDir);
 	
 	
 	//single user

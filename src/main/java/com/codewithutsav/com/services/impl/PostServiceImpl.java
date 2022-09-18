@@ -11,6 +11,10 @@ import com.codewithutsav.com.repositories.UserRepo;
 import com.codewithutsav.com.services.PostService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -72,8 +76,27 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<PostDto> getAllPost() {
-		List<Post> allposts=this.postRepo.findAll();
+	public List<PostDto> getAllPost(Integer pageNumber,Integer pageSize,String sortBy,String sortDir) {
+//
+//		int pageSize=5;
+//		int pageNumber=1;
+       Sort sort=null;
+		if (sortDir.equalsIgnoreCase("asc"))
+		{
+         sort=Sort.by(sortBy).ascending();
+
+		}
+		else
+		{
+			sort=Sort.by(sortBy).descending();
+		}
+
+		Pageable p= PageRequest.of(pageNumber,pageSize, sort);
+
+		Page<Post> pagePost=this.postRepo.findAll(p);
+		List<Post> allposts=pagePost.getContent();
+
+
 		List<PostDto> postDtos=allposts.stream().map((post)->this.modelMapper.map(post,PostDto.class)).collect(Collectors.toList());
 		return postDtos;
 		
