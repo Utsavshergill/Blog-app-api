@@ -1,5 +1,6 @@
 package com.codewithutsav.com.controllers;
 
+import com.codewithutsav.com.config.AppConstants;
 import com.codewithutsav.com.payloads.ApiResponse;
 import com.codewithutsav.com.payloads.PostDto;
 import com.codewithutsav.com.services.PostService;
@@ -54,10 +55,10 @@ public class PostController {
 	//get all posts
 	
 	@GetMapping("/posts")
-	public ResponseEntity<List<PostDto>> getAllPost(@RequestParam(value="pageNumber" ,defaultValue = "0",required = false) Integer pageNumber,
-													@RequestParam(value = "pageSize",defaultValue = "5",required = false) Integer pageSize,
-													@RequestParam(value="sortBy",defaultValue ="postId",required = false)String sortBy,
-													@RequestParam(value="sortDir",defaultValue = "asc",required = false)String sortDir)
+	public ResponseEntity<List<PostDto>> getAllPost(@RequestParam(value="pageNumber" ,defaultValue = AppConstants.PAGE_NUMBER,required = false) Integer pageNumber,
+													@RequestParam(value = "pageSize",defaultValue =AppConstants.PAGE_SIZE,required = false) Integer pageSize,
+													@RequestParam(value="sortBy",defaultValue =AppConstants.SORT_BY,required = false)String sortBy,
+													@RequestParam(value="sortDir",defaultValue =AppConstants.SORT_DIR,required = false)String sortDir)
 	{
 		List<PostDto> allPost =this.postService.getAllPost(pageNumber,pageSize,sortBy,sortDir);
 		return new ResponseEntity<List<PostDto>>(allPost,HttpStatus.OK);
