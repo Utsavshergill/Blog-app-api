@@ -1,6 +1,5 @@
 package com.codewithutsav.com.services;
 
-import com.codewithutsav.com.entities.Post;
 import com.codewithutsav.com.payloads.PostDto;
 
 import java.util.List;
@@ -36,6 +35,6 @@ public interface PostService {
 	List<PostDto> getPostByUser(Integer userId);
 	
 	//search posts
-	List<Post> searchPosts(String keyword);
+	List<PostDto> searchPosts(String keyword);
 
 }
